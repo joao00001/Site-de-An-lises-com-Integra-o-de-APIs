@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@100..900&family=Parkinsans:wght@300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <script src="chat.js" defer></script>
+    <title>ChatBot</title>
+    <link rel="stylesheet" href="chat.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+</head>
+<body >
+    <header>
+        <div class="nav-container">
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="index.html">Calendário</a></li>
+                    <li><a href="chat.html">ChatBot</a></li>
+                    <li><a href="dataanalise.html">Análise</a></li>
+                    <li><a href="news.html">Notícias</a></li>
+                </ul>
+            </nav>
+        </div>
+    
+        <!-- Caixa de Pesquisa Dentro do Header -->
+        <div class="search-container-header">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchBox"/>
+            <!-- Lista de resultados da pesquisa -->
+            <ul id="searchResultsList"></ul> <!-- Lista de itens encontrados -->
+            
+            <!-- Lista de arquivos salvos (original) -->
+            <ul id="savedFilesList"></ul> <!-- Lista dos arquivos salvos -->
+        </div>
+        <div class="profile-icon">
+            <a href="#" onclick="toggleMenu()">
+                <div class="menu-icon">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </div>
+            </a>
+            <div id="dropdown-menu" class="dropdown-menu">
+                <a href="#"><img src="user.png" class="menu-icon">Acessar perfil</a>
+                <a href="#"><img src="exit.png" class="menu-icon">Fazer Logout</a>
+                <a href="condicoesuso.html">Políticas de privacidade e uso</a>
+                <div id="theme-toggle" class="toggle-button">
+                    <span class="icon sun">☀️</span>
+                    <span class="icon moon">🌙</span>
+                </div>
+                            </div>
+        </div>
+                        
+    </header>
+    
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <button class="search-button">
+                <img src="robot.png" alt="Ícone de Busca">
+            </button>
+            <h2>ChatBot</h2>
+        </div>
+        <div class="sidebar-header2">
+            <button class="search-button">
+                <img src="filter.png" alt="Ícone de Busca">
+            </button>
+            <h2>Filtros</h2>
+        </div>
+        <ul>
+            <li>
+                <a href="#" onclick="toggleCheckboxes(event, 'cardiovascular')">Doenças Cardiovasculares</a>
+                <div id="cardiovascular" class="checkbox-container">
+                    <label><input type="checkbox" id="hipertensao"> Hipertensão</label><br>
+                    <label><input type="checkbox" id="arritmia"> Arritmia</label><br>
+                    <label><input type="checkbox" id="infarto"> Infarto</label><br>
+                    <label><input type="checkbox" id="insuficiencia-cardiaca"> Insuficiência Cardíaca</label><br>
+                    <label><input type="checkbox" id="doenca-coronaria"> Doença Coronária</label><br>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleCheckboxes(event, 'metabolicas')">Doenças Metabólicas</a>
+                <div id="metabolicas" class="checkbox-container">
+                    <label><input type="checkbox" id="diabetes"> Diabetes</label><br>
+                    <label><input type="checkbox" id="obesidade"> Obesidade</label><br>
+                    <label><input type="checkbox" id="dislipidemia"> Dislipidemia</label><br>
+                    <label><input type="checkbox" id="hipertireoidismo"> Hipertireoidismo</label><br>
+                    <label><input type="checkbox" id="gota"> Gota</label><br>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleCheckboxes(event, 'respiratorias')">Doenças Respiratórias</a>
+                <div id="respiratorias" class="checkbox-container">
+                    <label><input type="checkbox" id="asma"> Asma</label><br>
+                    <label><input type="checkbox" id="bronquite"> Bronquite</label><br>
+                    <label><input type="checkbox" id="enfisema"> Enfisema</label><br>
+                    <label><input type="checkbox" id="fibrose-pulmonar"> Fibrose Pulmonar</label><br>
+                    <label><input type="checkbox" id="pneumonia"> Pneumonia</label><br>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleCheckboxes(event, 'renais')">Doenças Renais</a>
+                <div id="renais" class="checkbox-container">
+                    <label><input type="checkbox" id="insuficiencia-renal"> Insuficiência Renal</label><br>
+                    <label><input type="checkbox" id="litis-renal"> Litíase Renal</label><br>
+                    <label><input type="checkbox" id="glomerulonefrite"> Glomerulonefrite</label><br>
+                    <label><input type="checkbox" id="nefropatia"> Nefropatia</label><br>
+                    <label><input type="checkbox" id="infeccao-urinaria"> Infecção Urinária</label><br>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleCheckboxes(event, 'hepaticas')">Doenças Hepáticas</a>
+                <div id="hepaticas" class="checkbox-container">
+                    <label><input type="checkbox" id="cirrose"> Cirrose</label><br>
+                    <label><input type="checkbox" id="hepatite"> Hepatite</label><br>
+                    <label><input type="checkbox" id="esteatose-hepatica"> Esteatose Hepática</label><br>
+                    <label><input type="checkbox" id="colestase"> Colestase</label><br>
+                    <label><input type="checkbox" id="insuficiencia-hepatica"> Insuficiência Hepática</label><br>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleCheckboxes(event, 'psiquiatricas')">Doenças Psiquiátricas</a>
+                <div id="psiquiatricas" class="checkbox-container">
+                    <label><input type="checkbox" id="depressao"> Depressão</label><br>
+                    <label><input type="checkbox" id="ansiedade"> Ansiedade</label><br>
+                    <label><input type="checkbox" id="transtorno-bipolar"> Transtorno Bipolar</label><br>
+                    <label><input type="checkbox" id="esquizofrenia"> Esquizofrenia</label><br>
+                    <label><input type="checkbox" id="toc"> TOC</label><br>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleCheckboxes(event, 'neurologicas')">Doenças Neurológicas</a>
+                <div id="neurologicas" class="checkbox-container">
+                    <label><input type="checkbox" id="epilepsia"> Epilepsia</label><br>
+                    <label><input type="checkbox" id="alzheimer"> Alzheimer</label><br>
+                    <label><input type="checkbox" id="parkinson"> Parkinson</label><br>
+                    <label><input type="checkbox" id="avc"> AVC</label><br>
+                    <label><input type="checkbox" id="esclerose-multipla"> Esclerose Múltipla</label><br>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleCheckboxes(event, 'autoimunes')">Doenças Autoimunes</a>
+                <div id="autoimunes" class="checkbox-container">
+                    <label><input type="checkbox" id="lupus"> Lúpus</label><br>
+                    <label><input type="checkbox" id="artrite-reumatoide"> Artrite Reumatoide</label><br>
+                    <label><input type="checkbox" id="esclerodermia"> Esclerodermia</label><br>
+                    <label><input type="checkbox" id="diabetes-tipo-1"> Diabetes Tipo 1</label><br>
+                    <label><input type="checkbox" id="psoriase"> Psoríase</label><br>
+                </div>
+            </li>
+            <li>
+                <a href="#" onclick="toggleCheckboxes(event, 'infecciosas')">Doenças Infecciosas</a>
+                <div id="infecciosas" class="checkbox-container">
+                    <label><input type="checkbox" id="tuberculose"> Tuberculose</label><br>
+                    <label><input type="checkbox" id="hiv"> HIV</label><br>
+                    <label><input type="checkbox" id="gripe"> Gripe</label><br>
+                    <label><input type="checkbox" id="dengue"> Dengue</label><br>
+                    <label><input type="checkbox" id="malaria"> Malária</label><br>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <main>
+        <div class="chat-box" id="chat-box"></div>
+        
+        <div class="input-container">
+            <input 
+                type="text" 
+                id="user-input" 
+                placeholder="Fale com o Assistente do Calendário" 
+                onkeydown="if(event.key === 'Enter') sendMessage()"
+            >
+            <button class="send-button" onclick="sendMessage()">
+                <img src="send-button.png" alt="Enviar">
+            </button>
+        </div>
+    </main>
+
+    <div class="sidebar2">
+        <div id="selected-items">
+            <h3>Comorbidades selecionadas</h3>            
+            <ul id="selected-list"></ul>
+            <button id="restart-button" onclick="resetSelections()">
+                <img src="restart.png" alt="Reiniciar" />
+                Apagar filtros
+            </button>
+        </div>   
+        <div id="resultado-medicamentos" class="resultado">
+            <h3>Medicamentos a evitar</h3>
+            <ul id="medicamento-list"></ul>
+        </div>   
+        <div id="gerador" class="pdf">
+            <button id="gerar-relatorio-button" onclick="gerarRelatorioPDF()">
+                <img src="pdf-image.png" alt="pdf" />
+                Gerar Relatório PDF
+            </button>
+        </div>          
+    </div>
+</body>
+</html>

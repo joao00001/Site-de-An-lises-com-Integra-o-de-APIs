@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,100..900;1,9..144,100..900&family=Inter:wght@100..900&family=Parkinsans:wght@300..800&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.15/index.global.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <title>Calendário</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="logo-triangular.png" alt="Logo" class="logo">
+    <div class="header-bt">
+    <div class="logo-container">
+        <img src="facebook.png" alt="Logo">
+        <img src="instagram.png" alt="Logo">
+        <img src="twitter.png" alt="Logo">
+        <img src="youtube.png" alt="Logo">
+        <img src="tiktok.png" alt="Logo">
+        <img src="linkedin.png" alt="Logo">
+        <img src="discordia.png" alt="Logo">
+        <!-- Caixa de Pesquisa Dentro do Header -->
+<div class="search-container-header">
+    <i class="fas fa-search"></i>
+    <input type="text" id="searchBox"/>
+    <ul id="searchResultsList"></ul> 
+    <ul id="savedFilesList"></ul>
+</div>
+
+
+
+    </div>
+
+        <div class="nav-container">
+            <nav>
+                <ul class="nav-links">
+                    <li>
+                        <a class="nav-link" href="index.html" data-section="products">Calendário</a>
+                        <div id="menu-products" class="menu-section">
+                            <p>Conteúdo relacionado ao Calendário</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="chat.html" data-section="services">ChatBot</a>
+                        <div id="menu-services" class="menu-section">
+                            <p>Conteúdo relacionado ao ChatBot</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="dataanalise.html" data-section="support">Análise</a>
+                        <div id="menu-support" class="menu-section">
+                            <p>Conteúdo relacionado à Análise</p>
+                        </div>
+                    </li>
+                    <li>
+                        <a class="nav-link" href="news.html" data-section="news">Notícias</a>
+                        <div id="menu-news" class="menu-section">
+                            <p>Conteúdo relacionado a Notícias</p>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+<div class="profile-icon">
+    <a href="#" onclick="toggleMenu()">
+        <div class="menu-icon">
+            <div class="bars"></div>
+            <div class="bars"></div>
+            <div class="bars"></div>
+        </div>
+    </a>
+    <div id="dropdown-menu" class="dropdown-menu">
+        <a href="#"><img src="user.png" class="menu-icon">Acessar perfil</a>
+        <a href="#"><img src="exit.png" class="menu-icon">Fazer Logout</a>
+        <a href="condicoesuso.html">Políticas de privacidade e uso</a>
+        <div id="theme-toggle" class="toggle-button">
+            <span class="icon sun">☀️</span>
+            <span class="icon moon">🌙</span>
+        </div>
+    </div>
+</div>
+</header>
+<div class="main-content">
+  <div class="clock">
+    <div class="clock-display" id="clock">00:00:00</div>
+    <div id="dateDisplay"></div>
+  </div>
+  <div id="focusMode">
+    <div class="focusModeContainer">
+    <button onclick="decreaseFocusTime()">−</button><h2>Foco</h2><button onclick="increaseFocusTime()">+</button>
+    </div>
+
+    <div id="focusBarContainer">
+        <div id="focusProgressBar"></div>
+    </div>
+    <p id="focusTimeDisplay">10:00</p>
+    <div class="buttons">
+        <button onclick="startFocusMode()">⏵</button>
+        <button onclick="pauseFocusMode()">⚌</button>
+        <button onclick="resetFocusMode()">⮌</button>
+    </div>
+    <div id="notification" class="notification hidden">
+        Tempo de foco concluído! Parabéns!
+    </div>
+    
+</div>
+
+    <div class="calendar">
+      <div class="header">
+          <button onclick="changeMonth(-1)">◄</button>
+          <h3 id="month-year"></h3>
+          <button onclick="changeMonth(1)">►</button>
+      </div>
+      <div class="weekdays">
+          <div>D</div><div>S</div><div>T</div><div>Q</div><div>Q</div><div>S</div><div>S</div>
+      </div>
+      <div class="days" id="calendar-grid"></div>
+    </div>
+</div>
+
+
+
+<div class="calendar-container">
+    <div id="calendarControls">
+        <button id="prevMonthButton">⏴</button>
+        <h2 id="currentMonthLabel"></h2>
+        <button id="nextMonthButton">⏵</button>
+    </div>
+
+    <div id="calendarGrid"></div>
+
+    <div id="eventManagerModal">
+        <h3>Gerenciador de Eventos</h3>
+        <div id="eventDateDisplay">
+        <input id="eventTitleInput" type="text" placeholder="Título do Evento">
+        <input id="eventTimeInput" type="time">
+        <textarea id="eventDetailInput" placeholder="Detalhes do Evento"></textarea>
+        <div class="buttons">
+        <button id="saveEventButton">Salvar Evento</button>
+        <button id="closeEventModalButton">Fechar</button>
+        </div>
+        </div>
+        <div id="existingEventList"></div>
+    </div>
+
+    <div id="calendarOverlay"></div>
+
+    <div id="dailyViewContainer">
+        <h3>Eventos do Dia</h3>
+        <ul id="dailyEventList"></ul>
+    </div>
+    <div class="view">
+    <button id="dailyViewButton">Vista Diária</button>
+    <button id="weeklyViewButton">Vista Mensal</button>
+    </div>
+</div>
+</body>
+<script src="calendario.js" defer></script>
+</html>

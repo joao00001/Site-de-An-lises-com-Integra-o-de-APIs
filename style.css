@@ -1,0 +1,945 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  display: flex;
+  height: 100vh;
+  background-color: #1e1e1e;
+  color: white;
+  padding-top: 100px;
+  padding-left: 20px;
+}
+
+.toggle-button {
+  width: 60px;
+  height: 30px;
+  background-color: #f0f0f0;
+  border-radius: 30px;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 5px;
+  transition: background-color 0.3s ease;
+}
+
+/* Botão no modo escuro */
+.toggle-button.dark-mode {
+  background-color: #333;
+}
+
+/* Estilo do círculo que desliza */
+.toggle-button::after {
+  content: '';
+  width: 24px;
+  height: 24px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Posição do círculo no modo escuro */
+.toggle-button.dark-mode::after {
+  transform: translateX(30px);
+}
+
+/* Ícones de sol e lua */
+.icon {
+  position: absolute;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+/* Sol visível no modo claro */
+.sun {
+  left: 30px;
+  opacity: 1;
+}
+
+/* Sol oculto no modo escuro */
+.toggle-button.dark-mode .sun {
+  opacity: 0;
+}
+
+/* Lua visível no modo escuro */
+.moon {
+  right: 30px;
+  opacity: 0;
+}
+
+/* Lua visível no modo escuro */
+.toggle-button.dark-mode .moon {
+  opacity: 1;
+}
+
+
+        
+          
+          /* Header */
+          header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            backdrop-filter: blur(10px);
+            background-color: #a4a4a467;
+            color: rgb(43, 42, 42);
+            width: 100%;
+            height: 89px;
+            box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.09);
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+          }
+          .logo{
+            max-width: 82px;
+            margin-left: 17em;
+            filter:brightness(0) invert(1);
+
+          }
+          
+          .header-bt {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-left: 5em;
+        }
+
+          .logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-bottom: 1px solid #2a2929;
+            padding-left: 3em;
+
+          }
+          .logo-container img{
+            max-width: 26px;
+            max-height: 26px;
+            margin-right: 1em;
+            margin-top: 5px;
+            margin-bottom: 7px;
+            filter:brightness(0) invert(1);
+          }
+
+          .nav-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-grow: 1;
+            position: relative;
+            margin-left: -28em;
+            margin-top: 7px;
+          }
+          
+          .nav-links {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-grow: 1;
+          }
+          
+          
+          /* Estilos para o Flyout Menu */
+/* Estilos para o Flyout Menu */
+.nav-links li {
+  position: relative; /* Permite que o submenu seja posicionado em relação ao li */
+}
+
+/* Estilo para o menu */
+.menu-section {
+  display: none; /* Inicialmente invisível */
+  position: fixed;
+  top: 89px;
+  left: 0;
+  width: 100%;
+  background-color: #333333eb; /* Cor de fundo transparente */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+  padding: 20px;
+  z-index: 1000; /* Assegura que o menu fique acima de outros elementos */
+  max-height: 700px; /* Define uma altura máxima para o menu */
+  backdrop-filter: blur(10px); /* Aplica um efeito de desfoque ao fundo */
+}
+
+
+.nav-links li:hover .menu-section {
+  display: none; /* Torna o menu visível */
+  transform: translateY(0); /* Desliza para a posição original */
+  opacity: 1; /* Torna o menu visível */
+}
+
+/* Estilo do conteúdo dentro do menu */
+.menu-section p {
+  font-size: 14px;
+  color: #ccc;
+  margin: 0;
+  padding: 10px;
+  align-content:space-between ;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 100%;
+  height: 5px;
+  background-color: #2a2929; /* Cor da faixa */
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform 0.2s ease-in-out;
+}
+
+.nav-links a:hover::after {
+  transform: scaleX(1);
+}
+
+
+          
+          .nav-links li a {
+            text-decoration: none;
+            color: #383838;
+            font-size: 16px;
+            display: flex;
+            align-items: center;
+            transition: color 0.3s ease;
+            font-weight: 600;
+          }
+          
+          
+          .nav-links li a:hover {
+            color: #242424;
+          }
+
+          .profile-icon img {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+          
+          .nav-container img {
+            height: 100%;
+            width: auto;
+            display: block;
+          }
+          
+          .profile-icon {
+            position: relative;
+          }
+          
+          
+          
+          
+          /* Estilos do ícone do menu */
+          .menu-icon {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 20px;
+            cursor: pointer;
+            z-index: 10001;
+          }
+          
+          /* Estilos das barras do ícone */
+          .bars {
+            width: 35px;
+            height: 1px;
+            background-color: #333;
+            border-radius: 1px;
+            transition: all 0.4s ease-in-out;
+        }
+          
+          
+          
+          
+/* Efeito divertido ao ativar */
+.menu-icon.active .bars:nth-child(1) {
+  transform: translateY(10px) rotate(45deg);
+  animation: bounce 0.3s ease-out;
+}
+
+.menu-icon.active .bars:nth-child(2) {
+  opacity: 0;
+  transform: scale(0);
+}
+
+.menu-icon.active .bars:nth-child(3) {
+  transform: translateY(-10px) rotate(-45deg);
+  animation: bounce 0.3s ease-out;
+}
+
+/* Animação divertida de "salto" ao abrir */
+@keyframes bounce {
+  0% { transform: scale(1.1); }
+  50% { transform: scale(0.9); }
+  100% { transform: scale(1); }
+}
+
+/* Efeito suave ao fechar */
+.menu-icon:not(.active) .bars:nth-child(1),
+.menu-icon:not(.active) .bars:nth-child(3) {
+  transform: rotate(0);
+  transition: transform 0.3s ease-in-out;
+}
+
+.menu-icon:not(.active) .bars:nth-child(2) {
+  opacity: 1;
+  transform: scale(1);
+  transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+}        
+          
+          /* Estilos do menu suspenso */
+          .dropdown-menu {
+            display: none; /* Inicialmente o menu está escondido */
+            position: absolute;
+            top: 35px; /* Ajuste a posição do menu */
+            right: 0;
+            background-color: #ffffffaf;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 10px;
+            border-radius: 30px;
+            z-index: 1000;
+            border: 1px solid #ccc; /* Bordas (opcional) */
+          }
+          
+          /* Exibe o menu quando a classe 'active' é adicionada */
+          .dropdown-menu.active {
+            display: block;
+          }
+          
+          /* Estilo das opções do menu */
+          .dropdown-menu a {
+            display: flex;
+            align-items: center; /* Alinha verticalmente os itens */
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+          }
+          .profile-icon img {
+            width: 30px;
+            height: 30px;
+            border-radius: 0;
+          }
+          .dropdown-menu a:hover {
+            background-color: #ffffff94;
+            border-radius: 30px;
+          }
+          .blur-effect {
+            filter: blur(5px); /* Ajuste a intensidade do blur conforme necessário */
+            pointer-events: none; /* Desativa a interação com os elementos que estão desfocados */
+          }
+          
+           .dropdown-menu img{
+            margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+            width: 20px; /* Defina o tamanho das imagens */
+            height: 20px; /* Defina o tamanho das imagens */
+           }
+
+/* Main Content */
+/* Containers principais */
+/* Containers principais */
+
+.search-container-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 400px; /* Ajuste conforme necessário */
+  width: 100%;
+  margin-left: 15em;
+  margin-bottom: 7px;
+}
+
+/* Ícone dentro da caixa de pesquisa */
+.search-container-header i {
+  position: absolute;
+  left: 10px; /* Distância do ícone à esquerda */
+  top: 50%;
+  transform: translateY(-50%); /* Centraliza verticalmente o ícone */
+  color: #dfdfdf; /* Cor do ícone */
+  z-index: 11;
+  font-size: 16px; /* Tamanho do ícone */
+}
+
+/* Estilização da caixa de pesquisa */
+#searchBox {
+  width: 100%;
+  max-width: 400px;
+  padding: 7px 10px 2px 35px; /* Espaço adicional à esquerda para o ícone */
+  margin-right: 2em;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  outline: none;
+  transition: border-color 0.3s;
+  position: relative; /* Define como referência para o posicionamento da lista */
+  box-shadow: 0 0 10px #a1a1a180;
+  backdrop-filter: blur(10px);
+  background-color: #949494a3; /* Cor de fundo semi-transparente */
+  color: #fff;
+}
+
+
+
+  /* Definindo a animação da sombra */
+  @keyframes shadowMovement {
+    0% {
+        box-shadow: 0 0 20px 5px #a7a7a7, 0 0 10px 3px #6a5acdcc;
+    }
+    50% {
+        box-shadow: 0 0 30px 10px #a7a7a7, 0 0 15px 5px #c322bbcc;
+    }
+    100% {
+        box-shadow: 0 0 40px 15px #001a76b4, 0 0 20px 8px #6a5acdcc;
+    }
+  }
+  
+  /* Mudança de borda ao focar */
+  #searchBox:focus {
+    animation: shadowMovement 2s infinite alternate; /* Aplica animação */
+    border-color: #a7a7a7; /* Roxo suave */
+    box-shadow: 0 0 5px rgba(106, 90, 205, 0.5);
+  }
+  #searchBox:hover {
+    animation: shadowMovement 2s infinite alternate; /* Aplica animação */
+    border-color: #a7a7a7; /* Roxo suave */
+    box-shadow: 0 0 5px rgba(106, 90, 205, 0.5);
+  }
+  
+  /* Estilização da lista de resultados da pesquisa */
+  #searchResultsList {
+    list-style-type: none;
+    padding: 0;
+    margin-top: 5px;
+    max-width: 400px;
+    position: absolute; /* Posiciona a lista sobre os outros elementos */
+    z-index: 10; /* Garante que a lista fique acima de outros elementos */
+    backdrop-filter: blur(5px);
+    background-color: #949494c0; /* Transparência ajustada */
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    top: 100%; /* Posiciona diretamente abaixo da caixa de pesquisa */
+    left: 0;
+  
+    max-height: 300px; /* Limita a altura da lista */
+    overflow-y: auto; /* Ativa o scroll vertical caso os itens ultrapassem a altura */
+  }
+  
+  /* Oculta a barra de rolagem */
+  #searchResultsList::-webkit-scrollbar {
+    width: 0px;  /* Oculta a barra de rolagem vertical */
+    background: transparent; /* Torna a área de rolagem transparente */
+  }
+  
+  /* Estilização dos itens da lista de resultados */
+  #searchResultsList li {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: #dfdfdf;
+    border-bottom: 1px solid #eaeaea;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+    
+  }
+  
+  /* Último item sem borda inferior */
+  #searchResultsList li:last-child {
+    border-bottom: none;
+  }
+  
+  /* Efeito hover nos itens */
+  #searchResultsList li:hover {
+    background-color: #695acd66; /* Roxo suave */
+    color: white;
+  }
+  
+  /* Oculta a lista de resultados quando não há pesquisa */
+  #searchResultsList:empty {
+    display: none;
+  }
+  /* Mostrar resultados quando há pesquisa */
+  #searchBox:focus + #searchResultsList {
+    display: block; /* Exibe a lista de resultados ao focar no campo */
+  }
+  ::-webkit-scrollbar {
+    width: 8px; /* Largura da barra de rolagem */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: #3a3c3c; /* Fundo da barra */
+    border-radius: 0px;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: #bbb; /* Cor da barra */
+    border-radius: 30px; /* Arredondamento da barra */
+    border: 2px solid transparent; /* Espaçamento interno */
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #9d9d9d; /* Cor ao passar o mouse */
+  }
+
+.clock, .timer {
+    background: #2a2a2a;
+    padding: 20px;
+    border-radius: 10px;
+    width: 285px;
+    height: auto;
+    text-align: center;
+    margin-bottom: 20px;
+    border: #383838 1px solid;
+    box-shadow: inset 0 0 169px #151515;
+}
+
+.calendar {
+  background: #2a2a2a;
+  padding: 20px;
+  border-radius: 10px;
+  width: 285px;
+  height: 305px;
+  text-align: center;
+  margin-bottom: 20px;
+  border: #383838 1px solid;
+  box-shadow: inset 0 0 169px #151515;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ccc;
+}
+
+.header button {
+  background: transparent;
+  border: none;
+  color: #ccc;
+  font-size: 10px;
+  padding: 7px 12px;
+  border-radius: 5px;
+  cursor: auto;
+}
+
+.header button:hover {
+  background: #6666665d;
+}
+
+.weekdays div {
+  font-weight: bold;
+}
+
+.weekdays {
+  border: #393838 1px solid;
+  border-radius: 10px;
+  padding: 3px;
+}
+
+.days, .weekdays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    margin-top: 10px;
+    color: #ccc;
+}
+.day, .empty {
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+}
+.day:hover {
+    background: #444;
+    cursor: pointer;
+}
+
+.day.active {
+  border: #8aaec0da 1px solid;
+  color: #839faeb5;
+  display: flex;
+}
+
+.today {
+    background: #90b9cd;
+    color: #000;
+}
+
+.clock-display, .timer-display {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.timer-controls button {
+  background: #222222;
+  border: #383838 1px solid;
+  color: #ccc;
+  font-size: 14px;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin: 5px;
+}
+.timer-controls button:hover {
+  background: #2a2a2a;
+}
+
+.calendar-container {
+  width: 90%;
+  max-width: 1200px;
+  max-height: auto;
+  background-color: #2a2a2a;
+  border: #383838 1px solid;
+  box-shadow: inset 0 0 169px #151515;
+  border-radius: 10px;
+  overflow: hidden;
+  display: block;
+  margin-left: 2em;
+  margin-right: 2em;
+}
+
+#calendarControls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+#nextMonthButton, #prevMonthButton{
+  background: #222222;
+  border: #383838 1px solid;
+  color: #ccc;
+  font-size: 18px;
+  padding: 1px 6px 1px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#nextMonthButton, #prevMonthButton:hover{
+  background: #2a2a2a;
+}
+
+#calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  width: 100%;
+  height: 77%;
+  padding: 5px;
+}
+
+.calendar-day {
+  border: #383838 1px solid;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+  position: relative;
+}
+
+.calendar-day:hover {
+  background: #4444442c;
+  cursor: pointer;
+}
+
+.day-events {
+  display: flex;
+  flex-wrap: wrap; /* Permite quebrar linha se houver muitos eventos */
+  justify-content: center;
+  gap: 8px; /* Espaço entre os eventos */
+  padding: 8px; /* Espaço interno */
+  border-radius: 4px; /* Cantos arredondados */
+  margin-top: 8px; /* Espaçamento acima */
+}
+
+.day-events span {
+  display: inline-block;
+  background-color: #90b9cd; /* Cor de fundo do marcador */
+  color: #000; /* Cor do texto */
+  padding: 4px 8px; /* Espaçamento interno */
+  border-radius: 10px; /* Formato de pílula */
+  font-size: 12px; /* Tamanho do texto */
+  cursor: default; /* Cursor padrão */
+  white-space: nowrap; /* Impede quebra de linha */
+  cursor: pointer;
+  box-shadow: 0 0 2px rgb(00, 00, 0.9);
+}
+
+.day-events span:hover {
+  background-color: #90b9cd7c; /* Cor ao passar o mouse */
+}
+
+
+#eventManagerModal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:#1c1c1c39;
+  backdrop-filter: blur(15px);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: none;
+  border-radius: 10px;
+  z-index: 1000;
+  border: #383838 1px solid;
+}
+
+#calendarOverlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+#dailyViewContainer {
+  display: none;
+}
+
+.view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
+  margin: 20px 0;
+  padding-left: 5em;
+  padding-right: 5em;
+}
+
+#dailyViewButton, #weeklyViewButton {
+  background: #222222;
+  border: #383838 1px solid;
+  color: #ccc;
+  font-size: 14px;
+  padding: 4px 6px 4px 6px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+#dailyViewButton:hover, #weeklyViewButton:hover {
+  background: #2a2a2a;
+}
+
+/* Estilos para o Modo Foco */
+#focusMode {
+  width: 285px;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #2a2a2a;
+  text-align: center;
+  border: #383838 1px solid;
+  box-shadow: inset 0 0 169px #151515;
+}
+
+.focusModeContainer h2 {
+  margin-bottom: 15px;
+  color: #ccc;
+  font-size: 18px;
+  border: #383838 1px solid;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 6px;
+  padding-right: 6px;
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  box-shadow: inset 0 0 14px #151515;
+}
+
+.focusModeContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#focusBarContainer {
+  margin-top: 10px;
+  border-radius: 10px;
+  height: 20px;
+  position: relative;
+  width: 100%; 
+  height: 5px; 
+  background-color: #383838; 
+  overflow: hidden;
+}
+
+#focusProgressBar {
+  height: 100%;
+  transition: width 0.5s ease;
+  width: 100%; 
+  height: 100%; 
+  background-color: #90b9cd;
+}
+
+#focusTimeDisplay {
+  margin-top: 10px;
+  font-size: 18px;
+  color: #ccc;
+  font-weight: bold;
+}
+
+#focusMode button {
+  display: flex;
+  justify-content:space-between ;
+  margin-bottom: 15px;
+  color: #90b9cd;
+  font-size: 18px;
+  border: #383838 1px solid;
+  padding: 5px 10px; 
+  border-radius: 10px;
+  margin-left: 5px;
+  margin-right: 5px;
+  background-color: #2a2a2a;
+  cursor: pointer;
+}
+
+.buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: -15px;
+}
+
+#focusMode button:hover {
+  background-color: #44444470;
+}
+
+#focusMode button:active {
+  background-color: #44444470;
+  scale: 0.95;
+  transition: 0.2s;
+}
+
+.notification {
+  position: fixed;
+  bottom: 20px;
+  right: -100%; /* Fora da tela inicialmente */
+  background-color: #2a2a2a27;
+  backdrop-filter: blur(10px);
+  border: #90b9cd 1px solid;
+  color: #ccc;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: inset 0 0 30px #151515;
+  opacity: 0;
+  transform: translateX(100%); /* Move para fora da tela */
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+}
+
+.notification.visible {
+  opacity: 1;
+  transform: translateX(0); /* Move para dentro da tela */
+  right: 2em; /* Fixa a posição final */
+}
+
+#eventDateDisplay {
+  font-size: 18px;
+  color: #ccc;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.buttons{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+  gap: 10px;
+}
+
+#closeEventModalButton, #saveEventButton {
+  border-radius: 10px;
+  padding: 3px 5px;
+  background: #222222;
+  color: #ccc;
+  border: #383838 1px solid;
+  cursor: pointer;
+}
+
+#closeEventModalButton:active, #saveEventButton:active {
+  scale: 0.95;
+}
+
+
+#eventManagerModal h3 {
+  color: #ccc;
+  margin-bottom: 10px;
+}
+
+#eventTitleInput{
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  border: #383838 1px solid;
+  background: #2a2a2a5e;
+  color: #ccc;
+}
+
+#eventTimeInput {
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  border: #383838 1px solid;
+  background: #2a2a2a5e;
+  color: #ccc;
+}
+
+#eventDetailInput {
+  width: 100%;
+  padding: 5px;
+  border-radius: 10px;
+  border: #383838 1px solid;
+  background: #2a2a2a5e;
+  color: #ccc;
+}
+
+.button-delete {
+  background: #222222;
+  border: #383838 1px solid;
+  color: #ccc;
+  font-size: 10px;
+  padding: 0px 2px 0px 2px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.button-delete:hover {
+  background: #2a2a2a;
+}
+
+.button-delete:active {
+  background: #2a2a2a;
+  scale: 0.95;
+}
+
+
+

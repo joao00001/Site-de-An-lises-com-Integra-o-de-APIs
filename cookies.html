@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições de Uso - AI Calendar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(to right, #2a2929, #3a3c3c); 
+            background-size: 200% 200%;            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffffbc;
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+            max-height: 90vh;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        .container::-webkit-scrollbar {
+    width: 8px; /* Define a largura da barra de rolagem */
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #c2c2c28e; /* Cor da parte "móvel" da barra */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background-color: #c2c2c2cd; /* Cor ao passar o mouse */
+}
+
+.container::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Cor do fundo da barra */
+}
+
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+        .side-boxes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px; /* Largura da barra lateral */
+    height: 100%; /* Ocupa toda a altura da tela */
+    background-color: #ffffffa0; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+    padding: 20px 10px; /* Espaçamento interno */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaço entre os itens */
+}
+
+.side-boxes .box {
+    padding: 15px; /* Espaçamento interno para os itens */
+    border-bottom: 1px solid #333; /* Linha separadora */
+    cursor: pointer;
+    text-align: left; /* Alinha o texto à esquerda */
+    font-size: 14px; /* Tamanho do texto */
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.side-boxes a{
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: inherit; /* Faz o texto herdar a cor da classe box */
+}
+
+.side-boxes .box:last-child {
+    border-bottom: none; /* Remove a linha do último item */
+}
+
+.side-boxes .box:hover {
+    background-color: #b1b1b1a8; /* Fundo mais escuro ao passar o mouse */
+    color: #333; /* Cor do texto ao passar o mouse */
+}
+ /* Botão Voltar */
+ .back-button {
+            border: 1px solid #ddd; /* Linha separadora */
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 15px;
+            background-color: #ffffffbb;
+            color: #333;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #ffffffb9;
+            transform: translateY(-2px);
+        }
+
+        .material-icons {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='condicoesuso.html';">
+        <span class="material-icons">arrow_back</span>
+        Voltar
+    </button>
+    
+    <div class="container">
+        <h1>Política de Cookies</h1>
+        <p><strong>Última atualização:</strong> 17/12/2024 </p>
+
+        <section>
+            <p>Esta Política de Cookies descreve como a plataforma AI Calendar utiliza cookies e tecnologias semelhantes para melhorar sua experiência ao acessar nosso site. Ao continuar navegando no site ou utilizando nossos serviços, você concorda com o uso de cookies conforme descrito nesta política.</p>
+        </section>
+
+        <section>
+            <h2>1. O que são Cookies?</h2>
+            <p>Cookies são pequenos arquivos de texto que são armazenados no seu dispositivo (computador, smartphone ou outro dispositivo eletrônico) quando você visita um site. Eles são amplamente utilizados para que o site funcione corretamente e para proporcionar uma experiência de navegação personalizada.</p>
+        </section>
+
+        <section>
+            <h2>2. Como Usamos os Cookies?</h2>
+            <p>O AI Calendar utiliza cookies para diversos fins, como:</p>
+            <ul>
+                <li>Melhorar a experiência do usuário: Para lembrar preferências e configurações de navegação, de modo que você não precise inserir as mesmas informações toda vez que acessar a plataforma.</li>
+                <li>Analisar o desempenho do site: Utilizamos cookies de análise para entender como você interage com nosso site, o que nos ajuda a melhorar nossos serviços.</li>
+                <li>Autenticação e segurança: Cookies são usados para manter você autenticado enquanto navega em nosso site e garantir que sua sessão seja segura.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>3. Tipos de Cookies Utilizados</h2>
+            <ul>
+                <li>1. Cookies Essenciais: Estes cookies são necessários para o funcionamento básico do site. Sem esses cookies, os serviços solicitados por você não podem ser fornecidos. Eles incluem, por exemplo, cookies que permitem a autenticação e segurança de suas interações no site.</li>
+                <li>2. Cookies de Desempenho: São utilizados para coletar informações sobre como os usuários interagem com o site. Isso nos permite analisar dados e melhorar o desempenho e a funcionalidade do site. Exemplo: Google Analytics.</li>
+                <li>3. Cookies Funcionais: Esses cookies permitem que o site se lembre de suas escolhas e preferências para melhorar a sua experiência de navegação. Isso pode incluir o idioma selecionado ou configurações de layout.</li>
+                <li>4. Cookies de Publicidade: Utilizamos cookies de publicidade para exibir anúncios relevantes para você, com base nos seus interesses. Esses cookies podem ser usados para personalizar anúncios que você vê em outros sites.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>4. Consentimento para o Uso de Cookies</h2>
+            <p>Ao acessar nosso site, você será informado sobre o uso de cookies por meio de um banner de consentimento. Você pode aceitar ou recusar o uso de cookies não essenciais. Caso você não concorde com o uso de cookies, pode desativá-los nas configurações do seu navegador. No entanto, desativar os cookies pode afetar a funcionalidade do site e limitar a sua experiência.</p>
+        </section>
+
+        <section>
+            <h2>5. Como Controlar os Cookies?</h2>
+            <p>Você pode controlar os cookies através das configurações do seu navegador. A maioria dos navegadores permite que você aceite, recuse ou exclua cookies. Para saber mais sobre como gerenciar cookies nos navegadores mais populares, consulte os links abaixo:</p>
+            <ul>
+                <li>
+                    Google Chrome: 
+                    <a href="https://support.google.com/chrome/answer/95647?hl=pt-BR" target="_blank">
+                        https://support.google.com/chrome/answer/95647?hl=pt-BR
+                    </a>
+                </li>
+                <li>
+                    Mozilla Firefox: 
+                    <a href="https://support.mozilla.org/pt-BR/kb/como-controlar-os-cookies" target="_blank">
+                        https://support.mozilla.org/pt-BR/kb/como-controlar-os-cookies
+                    </a>
+                </li>
+                <li>
+                    Microsoft Edge: 
+                    <a href="https://support.microsoft.com/pt-br/microsoft-edge/excluir-cookies-no-microsoft-edge-09f1b5c1-5b9b-4298-9a2a-419f8c6cbeed" target="_blank">
+                        https://support.microsoft.com/pt-br/microsoft-edge/excluir-cookies-no-microsoft-edge-09f1b5c1-5b9b-4298-9a2a-419f8c6cbeed
+                    </a>
+                </li>
+                <li>
+                    Safari: 
+                    <a href="https://support.apple.com/pt-br/guide/safari/sfri11471/mac" target="_blank">
+                        https://support.apple.com/pt-br/guide/safari/sfri11471/mac
+                    </a>
+                </li>
+            </ul>
+                        
+        </section>
+
+        <section>
+            <h2>6. Cookies de Terceiros</h2>
+            <p>Além dos cookies que utilizamos diretamente, podemos permitir que terceiros, como anunciantes ou prestadores de serviços de análise, também usem cookies em nosso site. Esses cookies de terceiros são controlados por essas empresas e, portanto, você deve revisar as políticas de privacidade e cookies dos respectivos terceiros.</p>
+        </section>
+
+        <section>
+            <h2>7. Alterações nesta Política de Cookies</h2>
+            <p>O AI Calendar pode atualizar esta Política de Cookies periodicamente. Quaisquer alterações serão publicadas nesta página e a data da última atualização será alterada. Recomendamos que você revise esta política regularmente para estar ciente de quaisquer modificações.</p>
+        </section>
+
+        <section>
+            <h2>8. Contato</h2>
+            <p>Se você tiver alguma dúvida sobre nossa Política de Cookies ou sobre como tratamos seus dados, entre em contato conosco através de nosso formulário de contato disponível em nosso site.</p>
+        </section>
+    </div>
+
+    <div class="side-boxes">
+        <a href="privacidade.html" class="box">Notificações de Privacidade</a>
+        <a href="cookies.html" class="box">Cookies</a>
+        <a href="chatbot-dados.html" class="box">Como o ChatBot utiliza seus dados</a>
+    </div>
+</body>
+</html>

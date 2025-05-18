@@ -1,0 +1,1496 @@
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(to right, #2a2929, #3a3c3c); 
+    background-size: 200% 200%;
+  }
+
+
+  .toggle-button {
+    width: 60px;
+    height: 30px;
+    background-color: #f0f0f0;
+    border-radius: 30px;
+    position: relative;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  /* Botão no modo escuro */
+  .toggle-button.dark-mode {
+    background-color: #333;
+  }
+  
+  /* Estilo do círculo que desliza */
+  .toggle-button::after {
+    content: '';
+    width: 24px;
+    height: 24px;
+    background-color: #ffffff;
+    border-radius: 50%;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Posição do círculo no modo escuro */
+  .toggle-button.dark-mode::after {
+    transform: translateX(30px);
+  }
+  
+  /* Ícones de sol e lua */
+  .icon {
+    position: absolute;
+    font-size: 16px;
+    transition: opacity 0.3s ease;
+  }
+  
+  /* Sol visível no modo claro */
+  .sun {
+    left: 30px;
+    opacity: 1;
+  }
+  
+  /* Sol oculto no modo escuro */
+  .toggle-button.dark-mode .sun {
+    opacity: 0;
+  }
+  
+  /* Lua visível no modo escuro */
+  .moon {
+    right: 30px;
+    opacity: 0;
+  }
+  
+  /* Lua visível no modo escuro */
+  .toggle-button.dark-mode .moon {
+    opacity: 1;
+  }
+  
+  
+          
+            
+            /* Header */
+            header {
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 0 20px;
+              backdrop-filter: blur(10px);
+              background-color: #a4a4a467;
+              color: rgb(43, 42, 42);
+              width: 100%;
+              height: 89px;
+              box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.09);
+              position: fixed;
+              top: 0;
+              left: 0;
+              z-index: 1000;
+            }
+            .logo{
+              max-width: 82px;
+              margin-left: 17em;
+              filter:brightness(0) invert(1);
+  
+            }
+            
+            .header-bt {
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+              margin-left: 5em;
+          }
+  
+            .logo-container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              position: relative;
+              border-bottom: 1px solid #2a2929;
+              padding-left: 3em;
+  
+            }
+            .logo-container img{
+              max-width: 26px;
+              max-height: 26px;
+              margin-right: 1em;
+              margin-top: 5px;
+              margin-bottom: 7px;
+              filter:brightness(0) invert(1);
+            }
+  
+            .nav-container {
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              flex-grow: 1;
+              position: relative;
+              margin-left: -28em;
+              margin-top: 7px;
+            }
+            
+            .nav-links {
+              list-style: none;
+              display: flex;
+              gap: 20px;
+              justify-content: center;
+              flex-grow: 1;
+            }
+            
+            
+            /* Estilos para o Flyout Menu */
+  /* Estilos para o Flyout Menu */
+  .nav-links li {
+    position: relative; /* Permite que o submenu seja posicionado em relação ao li */
+  }
+  
+  /* Estilo para o menu */
+  .menu-section {
+    display: none; /* Inicialmente invisível */
+    position: fixed;
+    top: 89px;
+    left: 0;
+    width: 100%;
+    background-color: #333333eb; /* Cor de fundo transparente */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidade */
+    padding: 20px;
+    z-index: 1000; /* Assegura que o menu fique acima de outros elementos */
+    max-height: 700px; /* Define uma altura máxima para o menu */
+    backdrop-filter: blur(10px); /* Aplica um efeito de desfoque ao fundo */
+  }
+  
+  
+  .nav-links li:hover .menu-section {
+    display: none; /* Torna o menu visível */
+    transform: translateY(0); /* Desliza para a posição original */
+    opacity: 1; /* Torna o menu visível */
+  }
+  
+  /* Estilo do conteúdo dentro do menu */
+  .menu-section p {
+    font-size: 14px;
+    color: #ccc;
+    margin: 0;
+    padding: 10px;
+    align-content:space-between ;
+  }
+  
+  .nav-links a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7.5px;
+    width: 100%;
+    height: 5px;
+    background-color: #2a2929; /* Cor da faixa */
+    transform: scaleY(0);
+    transform-origin: bottom;
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .nav-links a:hover::after {
+    transform: scaleX(1);
+  }
+  
+  
+            
+            .nav-links li a {
+              text-decoration: none;
+              color: #383838;
+              font-size: 16px;
+              display: flex;
+              align-items: center;
+              transition: color 0.3s ease;
+              font-weight: 600;
+            }
+            
+            
+            .nav-links li a:hover {
+              color: #242424;
+            }
+  
+            .profile-icon img {
+              width: 30px;
+              height: 30px;
+              border-radius: 50%;
+            }
+            
+            .nav-container img {
+              height: 100%;
+              width: auto;
+              display: block;
+            }
+            
+            .profile-icon {
+              position: relative;
+            }
+            
+            
+            
+            
+            /* Estilos do ícone do menu */
+            .menu-icon {
+              display: flex;
+              flex-direction: column;
+              justify-content: space-between;
+              width: 30px;
+              height: 20px;
+              cursor: pointer;
+              z-index: 10001;
+            }
+            
+            /* Estilos das barras do ícone */
+            .bars {
+              width: 35px;
+              height: 1px;
+              background-color: #333;
+              border-radius: 1px;
+              transition: all 0.4s ease-in-out;
+          }
+            
+            
+            
+            
+  /* Efeito divertido ao ativar */
+  .menu-icon.active .bars:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+    animation: bounce 0.3s ease-out;
+  }
+  
+  .menu-icon.active .bars:nth-child(2) {
+    opacity: 0;
+    transform: scale(0);
+  }
+  
+  .menu-icon.active .bars:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+    animation: bounce 0.3s ease-out;
+  }
+  
+  /* Animação divertida de "salto" ao abrir */
+  @keyframes bounce {
+    0% { transform: scale(1.1); }
+    50% { transform: scale(0.9); }
+    100% { transform: scale(1); }
+  }
+  
+  /* Efeito suave ao fechar */
+  .menu-icon:not(.active) .bars:nth-child(1),
+  .menu-icon:not(.active) .bars:nth-child(3) {
+    transform: rotate(0);
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  .menu-icon:not(.active) .bars:nth-child(2) {
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 0.2s ease-in-out, transform 0.2s ease-in-out;
+  }        
+            
+            /* Estilos do menu suspenso */
+            .dropdown-menu {
+              display: none; /* Inicialmente o menu está escondido */
+              position: absolute;
+              top: 35px; /* Ajuste a posição do menu */
+              right: 0;
+              background-color: #ffffffaf;
+              box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+              padding: 10px;
+              border-radius: 30px;
+              z-index: 1000;
+              border: 1px solid #ccc; /* Bordas (opcional) */
+            }
+            
+            /* Exibe o menu quando a classe 'active' é adicionada */
+            .dropdown-menu.active {
+              display: block;
+            }
+            
+            /* Estilo das opções do menu */
+            .dropdown-menu a {
+              display: flex;
+              align-items: center; /* Alinha verticalmente os itens */
+              padding: 10px;
+              text-decoration: none;
+              color: #333;
+            }
+            .profile-icon img {
+              width: 30px;
+              height: 30px;
+              border-radius: 0;
+            }
+            .dropdown-menu a:hover {
+              background-color: #ffffff94;
+              border-radius: 30px;
+            }
+            .blur-effect {
+              filter: blur(5px); /* Ajuste a intensidade do blur conforme necessário */
+              pointer-events: none; /* Desativa a interação com os elementos que estão desfocados */
+            }
+            
+             .dropdown-menu img{
+              margin-right: 10px; /* Espaçamento entre a imagem e o texto */
+              width: 20px; /* Defina o tamanho das imagens */
+              height: 20px; /* Defina o tamanho das imagens */
+             }
+  
+  /* Main Content */
+  /* Containers principais */
+  /* Containers principais */
+  
+  .search-container-header {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 400px; /* Ajuste conforme necessário */
+    width: 100%;
+    margin-left: 15em;
+    margin-bottom: 7px;
+  }
+  
+  /* Ícone dentro da caixa de pesquisa */
+  .search-container-header i {
+    position: absolute;
+    left: 10px; /* Distância do ícone à esquerda */
+    top: 50%;
+    transform: translateY(-50%); /* Centraliza verticalmente o ícone */
+    color: #dfdfdf; /* Cor do ícone */
+    z-index: 11;
+    font-size: 16px; /* Tamanho do ícone */
+  }
+  
+  /* Estilização da caixa de pesquisa */
+  #searchBox {
+    width: 100%;
+    max-width: 400px;
+    padding: 7px 10px 2px 35px; /* Espaço adicional à esquerda para o ícone */
+    margin-right: 2em;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+    outline: none;
+    transition: border-color 0.3s;
+    position: relative; /* Define como referência para o posicionamento da lista */
+    box-shadow: 0 0 10px #a1a1a180;
+    backdrop-filter: blur(10px);
+    background-color: #949494a3; /* Cor de fundo semi-transparente */
+    color: #fff;
+  }
+  
+  
+  
+    /* Definindo a animação da sombra */
+    @keyframes shadowMovement {
+      0% {
+          box-shadow: 0 0 20px 5px #a7a7a7, 0 0 10px 3px #6a5acdcc;
+      }
+      50% {
+          box-shadow: 0 0 30px 10px #a7a7a7, 0 0 15px 5px #c322bbcc;
+      }
+      100% {
+          box-shadow: 0 0 40px 15px #001a76b4, 0 0 20px 8px #6a5acdcc;
+      }
+    }
+    
+    /* Mudança de borda ao focar */
+    #searchBox:focus {
+      animation: shadowMovement 2s infinite alternate; /* Aplica animação */
+      border-color: #a7a7a7; /* Roxo suave */
+      box-shadow: 0 0 5px rgba(106, 90, 205, 0.5);
+    }
+    #searchBox:hover {
+      animation: shadowMovement 2s infinite alternate; /* Aplica animação */
+      border-color: #a7a7a7; /* Roxo suave */
+      box-shadow: 0 0 5px rgba(106, 90, 205, 0.5);
+    }
+    
+    /* Estilização da lista de resultados da pesquisa */
+    #searchResultsList {
+      list-style-type: none;
+      padding: 0;
+      margin-top: 5px;
+      max-width: 400px;
+      position: absolute; /* Posiciona a lista sobre os outros elementos */
+      z-index: 10; /* Garante que a lista fique acima de outros elementos */
+      backdrop-filter: blur(5px);
+      background-color: #949494c0; /* Transparência ajustada */
+      border: 1px solid #ccc;
+      border-radius: 30px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      top: 100%; /* Posiciona diretamente abaixo da caixa de pesquisa */
+      left: 0;
+    
+      max-height: 300px; /* Limita a altura da lista */
+      overflow-y: auto; /* Ativa o scroll vertical caso os itens ultrapassem a altura */
+    }
+    
+    /* Oculta a barra de rolagem */
+    #searchResultsList::-webkit-scrollbar {
+      width: 0px;  /* Oculta a barra de rolagem vertical */
+      background: transparent; /* Torna a área de rolagem transparente */
+    }
+    
+    /* Estilização dos itens da lista de resultados */
+    #searchResultsList li {
+      padding: 10px 15px;
+      font-size: 16px;
+      color: #dfdfdf;
+      border-bottom: 1px solid #eaeaea;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+      
+    }
+    
+    /* Último item sem borda inferior */
+    #searchResultsList li:last-child {
+      border-bottom: none;
+    }
+    
+    /* Efeito hover nos itens */
+    #searchResultsList li:hover {
+      background-color: #695acd66; /* Roxo suave */
+      color: white;
+    }
+    
+    /* Oculta a lista de resultados quando não há pesquisa */
+    #searchResultsList:empty {
+      display: none;
+    }
+    /* Mostrar resultados quando há pesquisa */
+    #searchBox:focus + #searchResultsList {
+      display: block; /* Exibe a lista de resultados ao focar no campo */
+    }
+
+           .exam-options {
+            position: absolute; /* Posiciona a div de forma absoluta */
+            top: 100px; /* Distância do topo */
+            right: 18.2em; /* Distância da borda direita */
+            text-align: center;
+            width: auto;
+            
+        }
+
+        .exam-options h1 {
+            margin-bottom: 20px;
+        }
+
+        .box-container {
+            display: flex;
+            justify-content: center;
+            gap: 4px; /* Espaçamento entre as caixas */
+            margin-bottom: 20px;
+        }
+
+        .box {
+          cursor: pointer;
+            display: inline-flex; /* Faz a caixa se ajustar ao conteúdo */
+            align-items: center; /* Centraliza ícone e título verticalmente */
+            padding-left: 5px;
+            padding-right: 5px;
+            backdrop-filter: blur(10px);
+            background-color: #e9e9e991; /* Cor de fundo semi-transparente */  
+            color: rgb(43, 42, 42);            
+            border: 1px solid #ccc;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            gap: 10px; /* Espaço entre o ícone e o título */
+        }
+        .box:hover{
+          animation: shadowMovement 2s infinite alternate; /* Aplica animação */
+          border: 1px solid #cccccc00;
+        }
+        .box.manual-box{
+          border-radius: 30px 10px 10px 30px;
+        }
+        .box.file-box{
+          border-radius: 10px 30px 30px 10px;
+        }
+
+        .box h2 {
+          font-size: 16px;
+            margin: 0; /* Remove espaçamento extra */
+            white-space: nowrap; /* Impede que o texto quebre */
+        }
+
+        .material-icons {
+            font-size: 18px; /* Tamanho do ícone */
+        }
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 80px; /* Ajuste para começar abaixo do cabeçalho */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 80px); /* Ajuste a altura para preencher o restante da tela */
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  align-items: center;
+}
+
+
+.modal-content {
+  backdrop-filter: blur(10px);
+  background-color: #ffffffa7; /* Cor de fundo semi-transparente */
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  height: 90%;
+  max-height: 800px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto; /* Permite rolar verticalmente se o conteúdo for maior que a altura */
+}
+.modal-content::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent; /* Fundo da barra */
+  border-radius: 10px;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: #bbb; /* Cor da barra */
+  border-radius: 50px; /* Arredondamento da barra */
+  border: 2px solid transparent; /* Espaçamento interno */
+}
+
+.modal-content::-webkit-scrollbar-thumb:hover {
+  background-color: #9d9d9d; /* Cor ao passar o mouse */
+}
+#file-interval {
+  width: 60px; /* Define a largura do input */
+  padding: 5px; /* Adiciona espaço interno */
+  border: 0.5px solid #cccccc80; /* Define a borda */
+  border-radius: 30px; /* Arredonda as bordas */
+  font-size: 14px; /* Define o tamanho da fonte */
+  text-align: center; /* Centraliza o texto */
+  margin-right: 10px; /* Adiciona espaço à direita */
+}
+.save-button{
+  backdrop-filter: blur(5px);
+  background-color: #ffffffa7; /* Cor de fundo semi-transparente */
+  border-radius: 30px;
+  border: 1px #00000000 solid;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.save-button:hover{
+  background-color: #b4b4b46b; /* Cor de fundo semi-transparente */
+
+}
+
+
+input[type="number"] {
+  width: 60px; /* Define a largura do input */
+  padding: 5px; /* Adiciona espaço interno */
+  border: 0.5px solid #cccccc80; /* Define a borda */
+  border-radius: 30px; /* Arredonda as bordas */
+  font-size: 14px; /* Define o tamanho da fonte */
+  text-align: center; /* Centraliza o texto */
+  margin-right: 10px; /* Adiciona espaço à direita */}
+
+#file-interval:focus {
+  outline: none; /* Remove o contorno padrão */
+  border-color: #6e6e6e93; /* Muda a cor da borda ao focar */
+  box-shadow: 0 0 0 2px #323232; /* Adiciona um leve destaque */
+}
+
+.modal-content-file {
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  width: 90%;
+  max-width: 600px;
+  height: 90%;
+  max-height: 800px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto; /* Permite rolar verticalmente se o conteúdo for maior que a altura */
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 18px;
+    cursor: pointer;
+}
+h1{
+  color: #e2e2e2;
+  margin-bottom: 2.5em;
+  margin-top: -3em;
+}
+.hidden {
+  display: none;
+}
+
+
+
+
+.next-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 30px;
+    border: 1px solid #ddd;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.next-button:hover {
+    background-color: #bababa;
+}
+
+.next-button .material-icons {
+    margin-left: 5px;
+}
+input[type="checkbox"] {
+    width: 20px; /* Tamanho da checkbox */
+    height: 20px;
+    appearance: none; /* Remove o estilo padrão */
+    background-color: #0000002d; /* Cor de fundo */
+    border: 1px solidrgb(73, 73, 73)0; /* Borda */
+    border-radius: 50%; /* Deixa redondo */
+    cursor: pointer;
+    outline: none;
+    display: inline-block;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #00000060; /* Cor ao ser marcado */
+    border-color: #ffffffb2; /* Cor da borda ao ser marcado */
+    background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"%3E%3Cpath d="M20.285 6.748a1 1 0 0 1 0 1.414l-9.034 9.034a1 1 0 0 1-1.414 0L3.715 11.66a1 1 0 1 1 1.414-1.414L10 15.117l8.872-8.872a1 1 0 0 1 1.413.003z"/%3E%3C/svg%3E');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 70%;
+}
+
+
+#saved-files-container {
+  position: fixed; /* Fixa o elemento na tela */
+  top: 100px; /* Começa 100px do topo */
+  bottom: 20px; /* Termina 20px antes do fim da janela */  
+  left: 0; /* Alinha a sidebar no lado esquerdo */
+  width: 370px; /* Largura da sidebar */
+  background-color: #e9e9e991; /* Cor de fundo semi-transparente */  
+  border-radius: 0 10px 10px 0;
+  border: 1px solid #dddddd00;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  overflow-y: auto; /* Ativa a rolagem vertical */
+}
+
+
+#saved-files-container::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+#saved-files-container::-webkit-scrollbar-track {
+  background: transparent; /* Fundo da barra */
+  border-radius: 10px;
+}
+
+#saved-files-container::-webkit-scrollbar-thumb {
+  background-color: #ddd; /* Cor da barra */
+  border-radius: 50px; /* Arredondamento da barra */
+  border: 2px solid transparent; /* Espaçamento interno */
+}
+
+#saved-files-container::-webkit-scrollbar-thumb:hover {
+  background-color: #bbb; /* Cor ao passar o mouse */
+}
+#saved-files-container h3 {
+  position: sticky; /* Faz o título "grudar" no topo ao rolar */
+  top: 0; /* Fixa o título no topo do container */
+  backdrop-filter: blur(5px); /* Aplica o efeito de desfoque no fundo */
+  z-index: 10; /* Garante que o título fique acima do conteúdo */
+  margin: 0; /* Remove margens externas */
+  padding: 0.5em; /* Adiciona um pequeno espaçamento interno */
+  width: 100%; /* Faz o título ocupar toda a largura do container */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve para destaque */
+}
+
+
+#saved-files-list li{
+  margin: 8px 10px; /* Espaçamento entre os itens */
+  backdrop-filter: blur(10px); /* Aplica o efeito de desfoque no fundo */
+  background-color: #bebebe6f;
+  border-radius: 30px;
+  color: #333;
+  text-align: justify;
+  padding-left: 1em;
+  border: 0px;
+  box-shadow: 3px 3px 3px rgba(0.1, 0.1, 0.1, 0.1); /* Sombra leve */
+}
+
+#saved-files-list li:hover{
+  background-color: #6060609c;
+  border-radius: 30px;
+}
+
+#saved-files-list li:last-child {
+  border-bottom: none; /* Remove a linha do último item */
+}
+/* Estilo para o item da lista */
+/* Estilo para o item da lista */
+.list-item {
+  display: flex;
+  justify-content: space-between; /* Espaçamento entre texto e ícones */
+  align-items: center;
+  padding: 5px 10px;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Contêiner de ícones */
+.icon-container {
+  display: flex;
+  gap: 10px; /* Espaço entre os ícones */
+}
+
+/* Ícone de exclusão */
+.delete-icon, .analise-icon {
+  width: 30px; /* Tamanho dos ícones */
+  height: 30px;
+  cursor: pointer;
+  border-radius: 30px;
+  padding: 4px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.delete-icon {
+  backdrop-filter: blur(30px);
+  background-color: #ffffff91; /* Cor de fundo semi-transparente */   border: 1px #cccccc00 solid;
+
+} 
+.analise-icon {
+  backdrop-filter: blur(10px);
+  background-color: #ffffff91; /* Cor de fundo semi-transparente */   border: 1px #667bc500 solid;
+
+}
+
+
+.delete-icon:hover, .analise-icon:hover {
+  transform: scale(1.2);
+  opacity: 0.8;
+}
+
+
+/* Estilo para o Modal */
+.modal {
+  display: none; /* Inicialmente o modal é oculto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Fundo escuro */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content-excluir {
+  background-color: white;
+  padding: 20px;
+  border-radius: 30px;
+  text-align: center;
+  width: 300px;
+  border: 1px #ddd solid;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.modal-content-excluir button {
+  padding: 10px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+#confirm-delete {
+  background-color: #fff;
+  color: #333;
+  border-radius: 30px;
+  border: 1px #ccc solid;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 1em;
+}
+
+#confirm-delete:hover {
+  background-color: #0000002e;
+}
+
+#confirm-delete:active {
+  background-color: #0000002e;
+  scale: 0.9;
+}
+
+#cancel-delete {
+  background-color: #fff;
+  color: #333;
+  border-radius: 30px;
+  border: 1px #ccc solid;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 1em;
+}
+
+#cancel-delete:hover {
+  background-color: #0000002e;
+}
+
+#cancel-delete:active {
+  background-color: #0000002e;
+  scale: 0.9;
+}
+#selected-list::-webkit-scrollbar {
+  width: 8px; /* Largura da barra vertical */
+  height: 8px; /* Altura da barra horizontal, se aplicável */
+}
+/* Estilo do modal */
+#unique-analysis-modal {
+  position: fixed;
+  top: 3em;
+  right: 0;
+  width: 75%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  backdrop-filter: blur(10px); /* Aplica o efeito de desfoque */
+  -webkit-backdrop-filter: blur(10px); /* Suporte para navegadores baseados em WebKit */
+  z-index: 100; /* Certifique-se de que seja maior que o z-index do título */
+}
+
+.unique-modal-content {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  width: 80%;
+  max-width: 600px;
+  position: relative;
+}
+
+.unique-modal-content .unique-close {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  cursor: pointer;
+  font-size: 20px;
+}
+/* Contêiner para todos os gráficos */
+#unique-analysis-charts-container {
+  display: grid; /* Usando Grid */
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Distribui em colunas */
+  gap: 20px; /* Espaçamento entre os gráficos */
+  padding: 10px; /* Espaçamento interno do contêiner */
+  backdrop-filter: blur(10px);
+  background-color: rgba(228, 228, 228, 0.5); /* Cor de fundo semi-transparente */
+  mix-blend-mode: multiply; /* Multiplica as cores, escurecendo o desfoque */  
+  border-radius: 10px;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+
+  max-height: 80vh; /* Limita a altura máxima do contêiner */
+  overflow-y: auto; /* Adiciona rolagem vertical se o conteúdo exceder */
+  overflow-x: hidden; /* Remove rolagem horizontal */
+  margin-top: 0.7em;
+}
+#unique-analysis-charts-container::-webkit-scrollbar {
+  width: 0px;
+  height: 0px;
+}
+
+#unique-analysis-charts-container::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+#unique-analysis-charts-container::-webkit-scrollbar-track {
+  background: transparent;
+}
+/* Cada gráfico individual */
+#unique-analysis-charts-container div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  border: 1px solid #cccccc00; /* Opcional: borda para destacar cada gráfico */
+  padding: 10px; /* Espaçamento interno */
+  border-radius: 30px; /* Opcional: cantos arredondados */
+  backdrop-filter: blur(5px);
+  background-color: rgba(255, 255, 255, 0.444); /* Cor de fundo semi-transparente */
+  mix-blend-mode: multiply; /* Multiplica as cores, escurecendo o desfoque */    
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Estilo para o canvas */
+#unique-analysis-charts-container canvas {
+  max-width: 100%;
+  height: 200px;
+}
+.additional-info-container {
+  padding: 15px;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.imc-inputs label {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.imc-inputs input, .imc-inputs select {
+  width: calc(100% - 10px);
+  padding: 5px;
+  margin-top: 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.imc-inputs button {
+  margin-top: 10px;
+  padding: 8px 15px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.imc-inputs button:hover {
+  background-color: #45a049;
+}
+#unique-close-analysis-modal {
+  backdrop-filter: blur(10px);
+  background-color: #ffffff7e; /* Cor de fundo semi-transparente */   
+  color: rgb(255, 0, 0); /* Cor do texto */
+  border: none; /* Remove a borda */
+  border-radius: 50%; /* Torna o botão redondo */
+  width: 40px; /* Tamanho do botão */
+  height: 40px; /* Tamanho do botão */
+  font-size: 24px; /* Tamanho do "X" */
+  display: block; /* Torna o botão um bloco para que ele ocupe a linha inteira */
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* Cursor de pointer para indicar que é clicável */
+  padding: 0; /* Remove qualquer espaçamento interno */
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  margin: 20px auto; /* Centraliza o botão horizontalmente com uma margem superior de 20px */
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+  
+}
+
+#unique-close-analysis-modal:hover {
+  scale: 1.2;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra leve */
+
+}
+#unique-close-analysis-modal:active {
+  scale: 0.9;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+
+}
+
+#unique-close-analysis-modal span {
+  display: block;
+}
+.analysis-button{
+  display: block;
+  margin: 0 auto;
+  background-color: #ffffff92;
+  border-radius: 30px;
+  border: 1px #ccc solid;
+  padding: 5px 7px;
+  margin-top: 1em;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+.analysis-button:hover{
+  animation: shadowMovement 2s infinite alternate; /* Aplica animação */
+  border-color: #a7a7a7; /* Roxo suave */
+  box-shadow: 0 0 5px rgba(106, 90, 205, 0.5);
+  border: 1px #cccccc00 solid;
+}
+
+#loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  z-index: 9999;
+  
+  /* Efeito de blur */
+  backdrop-filter: blur(5px); /* Aplica o desfoque de 5px no fundo */
+  -webkit-backdrop-filter: blur(5px); /* Para compatibilidade com Safari */
+}
+
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  height: 50px; /* Altura do container */
+}
+
+.spinner div {
+  width: 12px;
+  height: 12px;
+  background-color: white;
+  border-radius: 50%;
+  animation: bounce 1.5s infinite;
+}
+
+.spinner div:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.spinner div:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.spinner div:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+  0%, 80%, 100% {
+    transform: translateY(0); /* Posição inicial */
+  }
+  40% {
+    transform: translateY(-20px); /* Altura máxima do salto */
+  }
+}
+
+.analysis-icon,
+.delete-icon {
+    margin-left: 10px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.analysis-icon:hover,
+.delete-icon:hover {
+    color: #007BFF; /* Azul para hover */
+    transform: scale(1.2);
+}
+
+.analysis-icon {
+    color: #28a745; /* Verde para análise */
+}
+
+.delete-icon {
+    color: #dc3545; /* Vermelho para exclusão */
+}
+
+#calculate-imc-button{
+  background-color: #ffffff6a;
+  color: #333;
+  border-radius: 30px;
+  border: 1px #ccc solid;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);  
+}
+#calculate-imc-button:hover{
+  background-color: #d2d2d26a;
+}
+#calculate-imc-button:active{
+  scale: 0.9;
+}
+/* Contêiner de notificações */
+.notification-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  z-index: 1000;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Notificação - Estilo comum para todas */
+.notification {
+  backdrop-filter: blur(10px);
+  background-color: #e9e9e991; /* Cor de fundo semi-transparente */     
+  color: #333;
+  padding: 15px 20px;
+  border-radius: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  font-size: 16px;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.notification.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+/* Botão flutuante */
+.toggle-summary-button {
+  backdrop-filter: blur(10px);
+  background-color: #ffffff7e; /* Cor de fundo semi-transparente */   
+  color: #333; /* Cor do texto */
+  border: none; /* Remove a borda */
+  border-radius: 50%; /* Torna o botão redondo */
+  width: 40px; /* Tamanho do botão */
+  height: 40px; /* Tamanho do botão */
+  font-size: 16px; /* Tamanho do "X" */
+  display: fixed;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer; /* Cursor de pointer para indicar que é clicável */
+  padding: 0; /* Remove qualquer espaçamento interno */
+  transition: transform 0.3s, background-color 0.3s, box-shadow 0.3s;
+  margin-top: 0.3em;
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+}
+
+.toggle-summary-button:hover {
+  background-color: #45a049;
+}
+
+.toggle-summary-button:active {
+  background-color: #3e8e41;
+}
+
+/* Contêiner do resumo */
+.summary-container {
+  position: fixed;
+  bottom: 80px; /* Acima do botão */
+  right: 20px;
+  width: 300px;
+  max-height: 100vh;
+  overflow-y: auto;
+  padding: 20px;
+  background-color: rgba(240, 240, 240, 0.9);
+  border-radius: 10px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 1001; /* Deve ser maior que o do gráfico */
+  display: none; /* Inicialmente oculto */
+}
+
+.summary-container.visible {
+  display: block; /* Quando estiver visível */
+}
+/* Estilização do contêiner de pesquisa */
+.search-container-header {
+  display: flex;
+  align-items: center;
+  position: relative;
+  max-width: 400px; /* Ajuste conforme necessário */
+  width: 100%;
+}
+.search-container-header i {
+  position: absolute;
+  left: 10px; /* Distância do ícone à esquerda */
+  top: 50%;
+  transform: translateY(-50%); /* Centraliza verticalmente o ícone */
+  color: #dfdfdf; /* Cor do ícone */
+  z-index: 11;
+  font-size: 16px; /* Tamanho do ícone */
+}
+/* Estilização da caixa de pesquisa */
+#searchBox {
+  width: 100%;
+  max-width: 400px;
+  padding: 7px 10px 7px 35px; /* Espaço adicional à esquerda para o ícone */
+  margin-right: 2em;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  outline: none;
+  transition: border-color 0.3s;
+  position: relative; /* Define como referência para o posicionamento da lista */
+  box-shadow: 0 0 10px #a1a1a180;
+  backdrop-filter: blur(10px);
+  background-color: #949494a3; /* Cor de fundo semi-transparente */   
+  color: #fff;
+}
+/* Definindo a animação da sombra */
+@keyframes shadowMovement {
+  0% {
+      box-shadow: 0 0 20px 5px #a7a7a7, 0 0 10px 3px #6a5acdcc;
+  }
+  50% {
+      box-shadow: 0 0 30px 10px #a7a7a7, 0 0 15px 5px #c322bbcc;
+  }
+  100% {
+      box-shadow: 0 0 40px 15px #001a76b4, 0 0 20px 8px #6a5acdcc;
+  }
+}
+
+/* Mudança de borda ao focar */
+#searchBox:focus {
+  animation: shadowMovement 2s infinite alternate; /* Aplica animação */
+  border-color: #a7a7a7; /* Roxo suave */
+  box-shadow: 0 0 5px rgba(106, 90, 205, 0.5);
+}
+#searchBox:hover {
+  animation: shadowMovement 2s infinite alternate; /* Aplica animação */
+  border-color: #a7a7a7; /* Roxo suave */
+  box-shadow: 0 0 5px rgba(106, 90, 205, 0.5);
+}
+
+/* Estilização da lista de resultados da pesquisa */
+#searchResultsList {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 5px;
+  max-width: 400px;
+  position: absolute; /* Posiciona a lista sobre os outros elementos */
+  z-index: 10; /* Garante que a lista fique acima de outros elementos */
+  backdrop-filter: blur(5px);
+  background-color: #949494c0; /* Transparência ajustada */
+  border: 1px solid #ccc;
+  border-radius: 30px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  top: 100%; /* Posiciona diretamente abaixo da caixa de pesquisa */
+  left: 0;
+
+  max-height: 300px; /* Limita a altura da lista */
+  overflow-y: auto; /* Ativa o scroll vertical caso os itens ultrapassem a altura */
+}
+
+/* Oculta a barra de rolagem */
+#searchResultsList::-webkit-scrollbar {
+  width: 0px;  /* Oculta a barra de rolagem vertical */
+  background: transparent; /* Torna a área de rolagem transparente */
+}
+
+/* Estilização dos itens da lista de resultados */
+#searchResultsList li {
+  padding: 10px 15px;
+  font-size: 16px;
+  color: #dfdfdf;
+  border-bottom: 1px solid #eaeaea;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+  
+}
+
+/* Último item sem borda inferior */
+#searchResultsList li:last-child {
+  border-bottom: none;
+}
+
+/* Efeito hover nos itens */
+#searchResultsList li:hover {
+  background-color: #695acd66; /* Roxo suave */
+  color: white;
+}
+
+/* Oculta a lista de resultados quando não há pesquisa */
+#searchResultsList:empty {
+  display: none;
+}
+/* Mostrar resultados quando há pesquisa */
+#searchBox:focus + #searchResultsList {
+  display: block; /* Exibe a lista de resultados ao focar no campo */
+}
+.container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+  gap: 15px; /* Espaçamento entre os placeholders */
+  justify-items: center; /* Centralizar os itens horizontalmente */
+  opacity: 0.3;
+  margin-top: 15em;
+  margin-right: -29em;
+}
+
+.dashboard {
+  width: 240px; /* Tamanho do placeholder */
+  background-color: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.placeholder-title {
+  width: 70%;
+  height: 15px;
+  background-color: #ddd;
+  margin-bottom: 15px;
+  border-radius: 4px;
+}
+
+.chart {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  height: 120px;
+  background-color: #f0f0f0;
+  padding: 8px;
+  border-radius: 8px;
+  margin-bottom: 15px;
+}
+
+.bar {
+  width: 12%;
+  background-color: #bbb;
+  border-radius: 4px;
+}
+
+.text-blocks {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.text-placeholder {
+  width: 55%;
+  height: 12px;
+  background-color: #ddd;
+  border-radius: 4px;
+}
+
+.text-placeholder.small {
+  width: 28%;
+}
+
+/* Efeito de brilho */
+.shimmer {
+  position: relative;
+  overflow: hidden;
+  background: #e0e0e0;
+}
+
+.shimmer::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+      left: -100%;
+  }
+  100% {
+      left: 100%;
+  }
+}
+::-webkit-scrollbar {
+  width: 8px; /* Largura da barra de rolagem */
+}
+
+::-webkit-scrollbar-track {
+  background-color: #3a3c3c; /* Fundo da barra */
+  border-radius: 0px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #bbb; /* Cor da barra */
+  border-radius: 30px; /* Arredondamento da barra */
+  border: 2px solid transparent; /* Espaçamento interno */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #9d9d9d; /* Cor ao passar o mouse */
+}
+.loading-placeholder {
+  opacity: 0.3;
+  display: none;
+  background: #f0f0f0;
+  border-radius: 30px;
+  padding: 20px;
+  margin-bottom: 15px;
+  position: relative;
+  overflow: hidden;
+  margin-top: 1em;
+}
+
+.loading-placeholder.active {
+  display: block;
+}
+
+.loading-placeholder .line {
+  height: 10px;
+  background: #3a3c3c;
+  margin: 10px 0;
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.loading-placeholder .line::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: -150%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.7), transparent);
+
+  animation: shimmer 2s infinite;
+}
+
+.loading-placeholder .line.short {
+  width: 50%;
+}
+
+.loading-placeholder .line.medium {
+  width: 75%;
+}
+
+.loading-placeholder .line.long {
+  width: 100%;
+}
+
+@keyframes shimmer {
+  0% {
+    left: -150%;
+  }
+  100% {
+    left: 150%;
+  }
+}

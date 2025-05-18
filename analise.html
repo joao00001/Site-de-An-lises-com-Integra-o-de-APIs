@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<!-- saved from url=(0305)file:///C:/Users/joaoC/agenda_ia/dataanalise.html?Fun%C3%A7%C3%A3o+hep%C3%A1tica-AST+%28TGO%29=14&Fun%C3%A7%C3%A3o+hep%C3%A1tica-ALT+%28TGP%29=10&Fun%C3%A7%C3%A3o+hep%C3%A1tica-Fosfatase+alcalina+%28FA%29=34&Fun%C3%A7%C3%A3o+hep%C3%A1tica-Bilirrubina+total=0.4&Fun%C3%A7%C3%A3o+hep%C3%A1tica-Albumina=3.9# -->
+<html lang="pt-BR"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>analise</title>
+    <link rel="stylesheet" href="./analise_files/dataanalise.css">
+    <script src="./analise_files/dataanalise.js.transferir" defer=""></script>
+
+</head>
+<body>
+    <header>
+        <img src="logo-triangular.png" alt="Logo" class="logo">
+        <div class="header-bt">
+        <div class="logo-container">
+            <img src="facebook.png" alt="Logo">
+            <img src="instagram.png" alt="Logo">
+            <img src="twitter.png" alt="Logo">
+            <img src="youtube.png" alt="Logo">
+            <img src="tiktok.png" alt="Logo">
+            <img src="linkedin.png" alt="Logo">
+            <img src="discordia.png" alt="Logo">
+            <!-- Caixa de Pesquisa Dentro do Header -->
+    <div class="search-container-header">
+        <i class="fas fa-search"></i>
+        <input type="text" id="searchBox"/>
+        <ul id="searchResultsList"></ul> 
+        <ul id="savedFilesList"></ul>
+    </div>
+
+
+
+        </div>
+
+
+            <div class="nav-container">
+                <nav>
+                    <ul class="nav-links">
+                        <li>
+                            <a class="nav-link" href="index.html" data-section="products">Calendário</a>
+                            <div id="menu-products" class="menu-section">
+                                <p>Conteúdo relacionado ao Calendário</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="chat.html" data-section="services">ChatBot</a>
+                            <div id="menu-services" class="menu-section">
+                                <p>Conteúdo relacionado ao ChatBot</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="dataanalise.html" data-section="support">Análise</a>
+                            <div id="menu-support" class="menu-section">
+                                <p>Conteúdo relacionado à Análise</p>
+                            </div>
+                        </li>
+                        <li>
+                            <a class="nav-link" href="news.html" data-section="news">Notícias</a>
+                            <div id="menu-news" class="menu-section">
+                                <p>Conteúdo relacionado a Notícias</p>
+                            </div>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    
+        <div class="profile-icon">
+            <a href="#" onclick="toggleMenu()">
+                <div class="menu-icon">
+                    <div class="bars"></div>
+                    <div class="bars"></div>
+                    <div class="bars"></div>
+                </div>
+            </a>
+            <div id="dropdown-menu" class="dropdown-menu">
+                <a href="#"><img src="user.png" class="menu-icon">Acessar perfil</a>
+                <a href="#"><img src="exit.png" class="menu-icon">Fazer Logout</a>
+                <a href="condicoesuso.html">Políticas de privacidade e uso</a>
+                <div id="theme-toggle" class="toggle-button">
+                    <span class="icon sun">☀️</span>
+                    <span class="icon moon">🌙</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="exam-analysis">
+            <h1>Exame de Sangue: Análise Detalhada</h1>
+    
+            <!-- Boxes para escolha de envio de dados -->
+            <div class="exam-options">
+                <!-- Box para preenchimento manual -->
+                <div class="box manual-box">
+                    <h2>Preencha os Dados Manualmente</h2>
+                </div>
+    
+                <!-- Box para envio de arquivo -->
+                <div class="box file-box">
+                    <h2>Envie o Arquivo do Exame</h2>
+                    <span class="material-icons">cloud_upload</span>
+                </div>
+            </div>
+            <div id="saved-files-container">
+                <h3>Arquivos Salvos</h3>
+                <ul id="saved-files-list"><li style="cursor: pointer;">Glicemia - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Glicemia - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Função hepática - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Função renal - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Exame de coagulação - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Glicemia - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Exame de urina - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Glicemia - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Exame do dia - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Exame de coagulação - 22/12/2024<span class="delete-icon">🗑️</span></li><li style="cursor: pointer;">Função hepática - 22/12/2024<span class="delete-icon">🗑️</span></li></ul>
+            </div>
+
+
+            <!-- Modal de confirmação -->
+<div id="confirmation-modal" class="modal">
+    <div class="modal-content-excluir">
+        <h3>Tem certeza que deseja excluir este arquivo?</h3>
+        <button id="confirm-delete">Confirmar</button>
+        <button id="cancel-delete">Cancelar</button>
+    </div>
+</div>
+    
+        <!-- Modais -->
+        <div id="manual-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">×</span>
+                <h2>Selecione o Intervalo de Tempo</h2>
+                <form id="manual-interval-form">
+                    <label for="manual-interval">Intervalo (meses):</label>
+<input type="number" id="file-interval" name="file-interval" min="1" max="12" required="">
+
+                    <h3>Quais tipos de exames serão analisados?</h3>
+                    <div>
+                        <label><input type="checkbox" name="exam-type" value="Hemograma completo"> Hemograma completo: Avalia a quantidade e a qualidade das células sanguíneas, incluindo glóbulos vermelhos (hemácias), glóbulos brancos (leucócitos), plaquetas e índices hematimétricos, como a hemoglobina e o hematócrito.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Glicemia"> Glicemia (ou glicose no sangue): Mede os níveis de glicose no sangue.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Colesterol total e frações"> Colesterol total e frações (lipidograma): Avalia os níveis de colesterol no sangue.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Função hepática"> Função hepática: Conjunto de exames que mede a saúde do fígado.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Função renal"> Função renal: Exames como creatinina e ureia para avaliar a função dos rins.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Exame de urina"> Exame de urina: Indica condições relacionadas ao sangue, como infecções urinárias.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Exame de coagulação"> Exame de coagulação: Avalia a capacidade de coagulação do sangue.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Dosagem de hormônios"> Dosagem de hormônios: Mede os níveis de hormônios no sangue.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Vitamina D e outros micronutrientes"> Vitamina D e outros micronutrientes: Mede os níveis de vitaminas e minerais no sangue.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Testes sorológicos"> Testes sorológicos: Identificam a presença de anticorpos ou antígenos no sangue.</label>
+                    </div>
+
+                    <button class="next-button">
+                        Próximo <span class="material-icons">arrow_forward</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <div id="form-modal" class="modal">
+            <div class="modal-content">
+                <span class="close">×</span>
+                <h2>Preencha os Dados dos Exames Selecionados</h2>
+                <form id="analysis-form">
+                    <div id="dynamic-form"><h3>Formulário do Mês 1</h3><button class="save-button">Salvar</button></div>
+                    <button type="submit" class="submit-button">Analisar</button>
+                </form>
+            </div>
+        </div>
+                
+
+
+        <div id="file-modal" class="modal">
+            <div class="modal-content-file">
+                <span class="close">×</span>
+                <h2>Selecione o Intervalo de Tempo</h2>
+                <form id="file-interval-form">
+                    <label for="file-interval">Intervalo (meses):</label>
+                    <input type="number" id="file-interval" name="file-interval" min="1" max="12" required="">
+
+                    <h3>Quais tipos de exames serão analisados?</h3>
+                    <div>
+                        <label><input type="checkbox" name="exam-type" value="Hemograma completo"> Hemograma completo.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Glicemia"> Glicemia (ou glicose no sangue).</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Colesterol total e frações"> Colesterol total e frações (lipidograma).</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Função hepática"> Função hepática.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Função renal"> Função renal.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Exame de urina"> Exame de urina.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Exame de coagulação"> Exame de coagulação.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Dosagem de hormônios"> Dosagem de hormônios.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Vitamina D e outros micronutrientes"> Vitamina D e outros micronutrientes.</label><br>
+                        <label><input type="checkbox" name="exam-type" value="Testes sorológicos"> Testes sorológicos.</label>
+                    </div>
+                    <button class="next-button">
+                        Próximo <span class="material-icons">arrow_forward</span>
+                    </button>
+                </form>
+            </div>
+        </div>
+        </div>
+</main>
+
+
+</body></html>

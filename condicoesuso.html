@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Condições de Uso - AI Calendar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+            background: linear-gradient(to right, #2a2929, #3a3c3c); 
+    background-size: 200% 200%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background: #ffffffbc;
+            width: 90%;
+            max-width: 800px;
+            height: auto;
+            max-height: 90vh;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow-y: auto;
+        }
+        .container::-webkit-scrollbar {
+    width: 8px; /* Define a largura da barra de rolagem */
+}
+
+.container::-webkit-scrollbar-thumb {
+    background-color: #c2c2c28e; /* Cor da parte "móvel" da barra */
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+.container::-webkit-scrollbar-thumb:hover {
+    background-color: #c2c2c2cd; /* Cor ao passar o mouse */
+}
+
+.container::-webkit-scrollbar-track {
+    background-color: #f4f4f4; /* Cor do fundo da barra */
+}
+
+        h1, h2 {
+            color: #333;
+        }
+        h1 {
+            border-bottom: 2px solid #333;
+            padding-bottom: 10px;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        ul {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        ul li {
+            margin-bottom: 8px;
+        }
+        .side-boxes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px; /* Largura da barra lateral */
+    height: 100%; /* Ocupa toda a altura da tela */
+    background-color: #ffffffa0; /* Cor de fundo */
+    color: #333; /* Cor do texto */
+    padding: 20px 10px; /* Espaçamento interno */
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* Espaço entre os itens */
+}
+
+.side-boxes .box {
+    padding: 15px; /* Espaçamento interno para os itens */
+    border-bottom: 1px solid #333; /* Linha separadora */
+    cursor: pointer;
+    text-align: left; /* Alinha o texto à esquerda */
+    font-size: 14px; /* Tamanho do texto */
+    transition: background-color 0.3s, color 0.3s;
+}
+.side-boxes a{
+    text-decoration: none; /* Remove o sublinhado padrão dos links */
+    color: inherit; /* Faz o texto herdar a cor da classe box */
+}
+.side-boxes .box:last-child {
+    border-bottom: none; /* Remove a linha do último item */
+}
+
+.side-boxes .box:hover {
+    background-color: #b1b1b1a8; /* Fundo mais escuro ao passar o mouse */
+    color: #333; /* Cor do texto ao passar o mouse */
+}
+ /* Botão Voltar */
+ .back-button {
+            border: 1px solid #ddd; /* Linha separadora */
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            padding: 10px 15px;
+            background-color: #ffffffbb;
+            color: #333;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 14px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s, transform 0.2s;
+        }
+
+        .back-button:hover {
+            background-color: #ffffffb9;
+            transform: translateY(-2px);
+        }
+
+        .material-icons {
+            font-size: 20px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <button class="back-button" onclick="window.location.href='index.html';">
+        <span class="material-icons">arrow_back</span>
+        Voltar
+    </button>
+    
+    <div class="container">
+        <h1>Condições de Uso do AI Calendar</h1>
+        <p><strong>Última atualização:</strong> 17/12/2024 </p>
+
+        <section>
+            <h2>1. Sobre o AI Calendar</h2>
+            <p><strong>O AI Calendar</strong> é uma plataforma digital desenvolvida para fornecer informações relacionadas ao uso de medicamentos, um chatbot baseado em inteligência artificial (IA) para interação e esclarecimento de dúvidas, e uma ferramenta para geração de relatórios personalizados em formato PDF. Além disso, integramos uma plataforma de calendário completa que permite ao usuário gerenciar seus tratamentos e compromissos médicos de forma eficiente. O serviço visa melhorar a experiência do usuário no controle e gestão de tratamentos médicos, sendo um auxílio para promover a saúde, mas não substituindo a consulta com profissionais de saúde qualificados.</p>
+        </section>
+
+        <section>
+            <h2>2. Uso Responsável</h2>
+            <p>O usuário se compromete a utilizar o AI Calendar de forma ética e responsável, em conformidade com as leis e regulamentos aplicáveis. A plataforma oferece informações sobre medicamentos e tratamentos que são fornecidos com a finalidade única de informar e não devem ser interpretados como um substituto para a consulta com um médico. Em conformidade com o Art. 1º da Lei nº 13.021/2014, que regula a assistência farmacêutica no Brasil, o uso de informações fornecidas pela plataforma deve ser complementado pela orientação de profissionais da saúde devidamente habilitados.</p>
+        </section>
+
+        <section>
+            <h2>3. Sobre o Chat Bot</h2>
+            <p>O chatbot do AI Calendar utiliza inteligência artificial para fornecer respostas precisas e aprimorar continuamente suas interações com os usuários. As conversas realizadas com o chatbot poderão ser coletadas e usadas para treinamento do modelo de IA, visando melhorar o serviço oferecido. Contudo, em conformidade com a Lei Geral de Proteção de Dados Pessoais (Lei nº 13.709/2018 - LGPD), não deverá ser compartilhada nenhuma informação pessoal identificável (dados pessoais sensíveis, como condições de saúde específicas, sem o devido consentimento). O Art. 7º da LGPD assegura que o tratamento de dados pessoais deve ser feito com o consentimento do titular ou com base em outra hipótese legal específica.</p>
+        </section>
+
+        <section>
+            <h2>4. Sobre o Gerador de Relatórios</h2>
+            <p>O AI Calendar disponibiliza uma ferramenta para gerar relatórios em PDF, baseada nas condições de saúde informadas pelo usuário. Os relatórios indicam medicamentos a serem evitados ou com precauções baseadas nas diretrizes gerais de tratamento, mas não substituem a avaliação profissional. Em conformidade com o Art. 3º da Lei nº 13.021/2014, que determina que a assistência farmacêutica deve ser prestada por profissionais habilitados, qualquer decisão referente ao uso de medicamentos deve ser tomada em conjunto com um médico.</p>
+        </section>
+
+        <section>
+            <h2>5. Privacidade</h2>
+            <p>Ao utilizar o AI Calendar, você consente com a coleta e o uso de dados conforme descrito em nossa Política de Privacidade. De acordo com o Art. 5º da LGPD, você tem o direito de acessar, corrigir ou excluir os seus dados pessoais a qualquer momento. O AI Calendar compromete-se a utilizar as informações coletadas exclusivamente para melhorar os serviços, não compartilhando essas informações com terceiros sem o seu consentimento, salvo quando exigido por lei.</p>
+        </section>
+
+        <section>
+            <h2>6. Isenção de Responsabilidade</h2>
+            <p>O AI Calendar não se responsabiliza por quaisquer danos ou consequências decorrentes do uso indevido das informações fornecidas pela plataforma, incluindo decisões de tratamento médico sem a consulta de um profissional. Conforme o Art. 927 do Código Civil Brasileiro (Lei nº 10.406/2002), que estabelece a responsabilidade civil, a plataforma se isenta de responsabilidade por falhas ou desatualizações nas informações fornecidas, que podem ocorrer devido a erros técnicos ou desatualizações nos dados.</p>
+        </section>
+
+        <section>
+            <h2>7. Modificações nos Termos de Uso</h2>
+            <p>O AI Calendar se reserva o direito de modificar, a qualquer momento, os termos de uso da plataforma, com notificação aos usuários por meio da plataforma. O uso contínuo da plataforma após qualquer modificação constitui a aceitação dos novos termos. De acordo com o Art. 47 do Código de Defesa do Consumidor (Lei nº 8.078/1990), os consumidores devem ser informados de maneira clara sobre modificações contratuais, e o seu consentimento deve ser obtido.</p>
+        </section>
+
+        <section>
+            <h2>8. Contato</h2>
+            <p>Em caso de dúvidas, questionamentos ou solicitações relacionadas às Condições de Uso, Política de Privacidade ou outros assuntos, entre em contato conosco por meio do nosso formulário de contato disponível na plataforma.</p>
+        </section>
+
+        <section>
+            <h2>Aceitação dos Termos</h2>
+            <p>Ao utilizar o AI Calendar, você confirma que leu, entendeu e concorda com todas as condições aqui descritas. A sua utilização da plataforma implica na aceitação integral e irrestrita dos termos de uso estabelecidos neste documento.</p>
+        </section>
+        <section>
+            <h2>Notas adicionais:</h2>
+            <p><strong>1. LGPD (Lei nº 13.709/2018)</strong>: Estabelece regras claras sobre o uso e proteção de dados pessoais, garantindo aos usuários direitos sobre os seus dados e exigindo o consentimento explícito para coleta e processamento de informações pessoais.</p>
+            <p><strong>2. Código de Defesa do Consumidor (Lei nº 8.078/1990)</strong>: Regulamenta os direitos dos consumidores no Brasil e estabelece normas para a relação de consumo, incluindo a transparência e a modificação de contratos.</p>
+            <p><strong>3. Lei nº 13.021/2014</strong>: Regula a assistência farmacêutica no Brasil, detalhando as responsabilidades dos profissionais da saúde em relação à segurança dos tratamentos médicos e medicamentos.</p>
+        </section>
+    </div>
+
+    <div class="side-boxes">
+        <a href="privacidade.html" class="box">Notificações de Privacidade</a>
+        <a href="cookies.html" class="box">Cookies</a>
+        <a href="chatbot-dados.html" class="box">Como o ChatBot utiliza seus dados</a>
+    </div>
+    
+</body>
+</html>
